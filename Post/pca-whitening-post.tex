@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[T1]{fontenc}
+\usepackage[framed,numbered]{matlab-prettifier}
+\usepackage{listings}
+\lstset{
+  style      = Matlab-editor,
+  basicstyle = \fontfamily{pcr}\selectfont\footnotesize, % if you want to use Courier
+}
+
+\title{Natural Image Statistic: Principal Component and Whitening notes}
+\author{Srikanth Gadicherla}
+
+\begin{document}
+
+\maketitle
+\section{Gaussianity as the basis for PCA}
+\subsection{The Probability model related to PCA}
+The most interesting part of data is variances and covariances which is the central aspect of a Gaussian data, which goes by the equation 
+
+\begin{equation}
+p(x_1,...,x_2) = \dfrac{1}{(2\pi)^{n/2}|C|^{1/2}} exp\bigg(-\dfrac{1}{2} \sum_{i,j}x_i,x_j [C^{-1}]_{ij}\bigg)
+\end{equation}
+
+\noindent
+where $C^{-1}$ is the inverse of the covariance matrix and $[C^{-1}]_{ij}$ is the $i$-th row and $j$-th column of that inverse matrix.
+
+\noindent
+Given the data distribution is Gaussian, the covariance based methods generally suffice, but in reality the data distribution of the images is far from Gaussian.  	
+
+\noindent
+Use PCA as statistical model given the data as Gaussian distribution, so that we could apply Bayesian inference, but for this we need to compute the prior distribution for any image data.
+
+\subsection{PCA as generative model}
+
+\noindent
+In generative models, we try to estimate the distribution(or process) which produced that data-...
+
+\subsection{Image Synthesis result}
+\noindent
+Plotting the data generated from the model shows that PCA captures the general smoothness of the images.
+\noindent
+The smoothness comes from the fact that first PC corresponds to the feature  which changes rather smoothly.
+
+\section{Power spectrum of natural images}
+The covariances and the frequency based properties are related via the Wiener-Khinchin theorem
+
+\subsection{The $1/f$ Fourier amplitude or $1/f^2$ power spectrum}
+
+The frequency based representation tells that power spectrum of natural images is inversely proportional to the square of the frequency.
+
+\noindent Known that power spectrum is the square of the Fourier amplitude, so it implies that Fourier amplitude is inversely proportional to frequency.
+
+
+
+
+\end{document}
+
